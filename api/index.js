@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: 'http://localhost:8000/',
 })
 
 const fetchProductById = (id) => {
@@ -16,4 +16,17 @@ const fetchProductByKeyword = (keyword) => {
   })
 }
 
-export { fetchProductById, fetchProductByKeyword }
+const createCartItem = (cartItem) => {
+  return instance.post(`/carts`, cartItem)
+}
+
+const fetchCartItems = () => {
+  return instance.get(`/carts`)
+}
+
+export {
+  fetchProductById,
+  fetchProductByKeyword,
+  createCartItem,
+  fetchCartItems,
+}

@@ -23,7 +23,12 @@
 </template>
 
 <script>
-export default {}
+import { FETHCH_CART_ITEMS } from '@/store'
+export default {
+  async asyncData({ store }) {
+    await store.dispatch(FETHCH_CART_ITEMS)
+  },
+}
 </script>
 
 <style scoped>
