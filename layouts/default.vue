@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1>{{ $route.name }}페이지</h1>
+    <header>
+      <h1>
+        <NuxtLink to="/">Nuxt Shopping</NuxtLink>
+      </h1>
+    </header>
     <Nuxt />
   </div>
 </template>
