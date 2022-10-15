@@ -17,6 +17,14 @@ export default {
     port: process.env.NODE_ENV === 'production' ? null : 5000,
   },
 
+  // env config
+  env: {
+    baseURL:
+      process.env.NODE_ENV === 'production'
+        ? 'https://my-json-server.typicode.com/jy0813/nuxt-shopping-api'
+        : 'http://localhost:8000/',
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/css/reset.css'],
 
