@@ -22,6 +22,24 @@ export const mutations = {
 export const actions = {
   async [FETHCH_CART_ITEMS]({ commit }) {
     const { data } = await fetchCartItems()
-    commit('setCartItems', data)
+    commit(
+      'setCartItems',
+      data.map((item) => ({
+        ...item,
+        imageUrl: `${item.imageUrl}?random=${Math.random()}`,
+      }))
+    )
+  },
+  // nuxt app 이 실행될때
+  async nuxtServerInit(storeContext, nuxtContext) {
+    await storeContext.dispatch(FETHCH_CART_ITEMS)
+    // const { data } = await fetchCartItems()
+    // storeContext.commit(
+    //   'setCartItems',
+    //   data.map((item) => ({
+    //     ...item,
+    //     imageUrl: `${item.imageUrl}?random=${Math.random()}`,
+    //   }))
+    // )
   },
 }
