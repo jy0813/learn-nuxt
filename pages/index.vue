@@ -35,11 +35,11 @@ import { fetchProductByKeyword, fetchProducts } from '@/api/index'
 export default {
   components: { SearchInput },
   async asyncData() {
-    const response = await fetchProducts
-    const products = response.data.map((item) => {
+    const response = await fetchProducts()
+    const products = response.data.map((product) => {
       return {
-        ...item,
-        imageUrl: `${item.imageUrl}?random=${Math.random()}`,
+        ...product,
+        imageUrl: `${product.imageUrl}?random=${Math.random()}`,
       }
     })
     return { products }
